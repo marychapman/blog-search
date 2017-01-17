@@ -1,2 +1,2 @@
-# blog-search
-A post that describes search algorithms 
+# blog-search-sort
+A blog on searching and sorting algorithms

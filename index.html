@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Raleway">
+      <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=La+Belle+Aurore">
+
+
+  </head>
+
+  <body>
+    <header>
+      <h1>Search</h1>
+    </header>
+
+    <div id="container">
+
+      <article>
+
+        <div id="buttons">
+
+        <button id="hide" class="selected press" >LONG<br>VERSION</button>
+        <button id="show" class="notSelected press">  SHORT<br>VERSION</button>
+
+        </div>
+
+        <h2 class="hidden">Introduction</h2>
+        <p class="hidden">There's a good chance you've used a computerized search algorithm sometime in your life.  Thanks to search algorithms, you have the ability to search for friends on Facebook, look for that book you wanted on Amazon, or find your favorite movie on Netflix.  In this example, we'll travel back to a time before Netflix or Hulu and use the process of searching for a physical copy of a movie.  I'll explain the process of linear search through the example of looking through a personal DVD collection and I'll explain a binary search by walking through the steps of searching for a movie in a store such as Blockbuster.</p>
+        <h2>Linear Search</h2>
+        <h3 class="hidden">Overview</h3>
+        <p class="hidden">To demonstrate the process of a linear search, let's pretend like we're searching through our personal DVD collection for the movie Peter Pan.  Our movies are unordered and sitting sitting on a shelf.</p>
+
+        <p class="hidden">Most likely, we would scan the shelf until we found the movie we're looking for. We might look through the movies one by one and ask ourselves "is this the movie I'm looking for?" If not we would move along to the next movie.  If we found the movie we were looking for we would grab the movie and end the search.  If we didn't find the movie, we might terminate the search once we reach the end of the shelf and thus arrive to the conclusion that we do not have the movie.</p>
+
+        <h3>Setup</h3>
+        <p class="hidden">Let's try and translate these steps into something the computer can understand.  First, let's create an array of the movies and set up the function.</p>
+
+        <p class="instructions">Step 1. Organize the movies into an array data structure and create a function.</p>
+
+        <div id="image">
+          <image class="medPic" src="images/movies_unordered.png" />
+        </div>
+
+        <div class="codeBtnDiv" id="codeShow1">
+          <button class="codeBtn" id="showCode">SHOW CODE </button>
+        </div>
+        <div class="codeBtnDiv" id="codeHide1" style="display:none">
+          <button class="codeBtn" >HIDE CODE </button>
+        </div>
+
+        <div class="code">
+          <code  style="display:none" id="code1">
+            <pre>
+    <span class="codeImportantY">var movies = ['ghostbusters', 'up', 'star wars', 'peter pan',
+      'captain america'];
+
+      function linearSearch() {</span>
+
+        <span class="codeComment">// code will go here</span>
+
+      <span class="codeImportantY">}</span>
+          </pre>
+          </code>
+        </div>
+
+    <h3>The For Loop</h3>
+    <div class="hidden">
+    <p>Next, we will run a scan through the movies.  This would be the equivelent to our eyes searching through the movies one by one. When looking throught the movies, there are three things to keep in mind:</p>
+        <ul>
+        <li>We might start at one end or the other, becuase otherwise we might have to circle back to the beginning of the shelf, creating more work.</li>
+        <li>We would also need to know when to stop.  It wouldn't make much sense to keep searching when we found what we were looking for, nor would it make much sense to keep searching when the DVDs end.</li>
+        <li>We would need to make sure we search through each movie.  Skipping a few movies through the prcoess might lead us to the incorrect conclusion that we do not have the movie.</li>
+      </ul>
+    </div>
+        <div class="instructions">
+          <p>Step 2. Create a loop through our array of movies.The loop will need to accomplist 3 goals:</p>
+            <ol>
+              <li>Establish a starting point</li>
+              <li>Establish an end point</li>
+              <li>Iterate through the loop</li>
+            </ol>
+          </div>
+          <div id="image">
+            <image class="medPic" src="images/movies_loop.png" />
+          </div>
+          <div class="codeBtnDiv" id="codeShow2">
+            <button class="codeBtn" id="showCode">SHOW CODE </button>
+          </div>
+          <div class="codeBtnDiv" id="codeHide2" style="display:none">
+            <button class="codeBtn" >HIDE CODE </button>
+          </div>
+
+          <div class="code">
+            <code  style="display:none" id="code2">
+              <pre>
+    var movies = ['ghostbusters', 'up', 'star wars', 'peter pan',
+    'captain america'];
+
+    function linearSearch() {
+      <span class="codeImportantY">for (var i = 0; i < movies.length; i++) {</span>
+        <span class="codeComment">// if statement will go here</span>
+      <span class="codeImportantY">}</span>
+    }
+            </pre>
+            </code>
+          </div>
+
+          <h3>Applying Logic</h3>
+          <p class="hidden">Now that we have the ability to scan through the movies, we'll apply some logic to it.  Let's think about the thought process when you are looking through a shelf of movies. Ultimately, we are most likely asking ourselves something along the lines of "is the movie I'm looking at the movie I'm looking for?". If it is the movie, then we remove the movie and terminate the search.  If it is not, we move along to the next movie. </p>
+
+          <p class="instructions">Step 3: create an if statement that compares the current item to the item we're looking for.  If the two are equal, return the current item.</p>
+
+          <div id="image">
+            <image class="largePic" src="images/movies_for_loop_logic.png" />
+          </div>
+
+          <div class="codeBtnDiv" id="codeShow3">
+            <button class="codeBtn" id="showCode">SHOW CODE </button>
+          </div>
+          <div class="codeBtnDiv" id="codeHide3" style="display:none">
+            <button class="codeBtn" >HIDE CODE </button>
+          </div>
+
+          <div class="code">
+            <code  style="display:none" id="code3">
+              <pre>
+      var movies = ['ghostbusters', 'up', 'star wars', 'peter pan',
+      'captain america'];
+
+    function linearSearch()
+      for (var i = 0; i < movies.length; i++) {
+          <span class="codeImportantY">if (movies[i] === 'peter pan') {
+              return movies[i];</span>
+          }
+       }
+    }
+            </pre>
+            </code>
+          </div>
+
+          <p class="hidden">Our code may appear to be complete, and may work successfully in many situations, but we are missing an important step.  To illustrate, let's assume that you have a group of friends waiting in the next room over to see if you found the movie. You searched through the shelf but did not find the movie.  It would be kind of awkward if you came back in the room without saying anything.  Just as a good friend, would report back the movie has not been found, good code should also notify the user if the item was not found.</p>
+
+          <p class="instructions">Step 4: If the movie is not returned after iterating through the array, return 'not found'</p>
+
+          <div id="image">
+            <image class="largePic" src="images/movies_not_found.png" />
+          </div>
+
+          <div class="codeBtnDiv" id="codeShow4">
+            <button class="codeBtn" id="showCode">SHOW CODE </button>
+          </div>
+          <div class="codeBtnDiv" id="codeHide4" style="display:none">
+            <button class="codeBtn" >HIDE CODE </button>
+          </div>
+
+          <div class="code">
+            <code  style="display:none" id="code4">
+              <pre>
+    var movies = ['ghostbusters', 'up', 'star wars', 'peter pan',
+    'captain america'];
+
+    function linearSearch() {
+       for (var i = 0; i < movies.length; i++) {
+            if (movies[i] === 'peter pan') {
+                return movies[i];
+            }
+        }
+    <span class="codeImportantY">return 'not found';</span>
+    }
+            </pre>
+            </code>
+          </div>
+
+    <p class="hidden">The steps are technically complete, and works with the movie array, but suppose we want to use the function with other arrays or look for a different movie?  Suppose instead of searching for movies we want to search for books.  We can achieve this functionality by adding arguements to our function.  These will act as placeholders for an array and target in the future, increasing the functionality of our code.</p>
+
+    <p class="instructions">Step 4: Inside of the function create arguments for the array and the target, making the function work for other arrays and different targets.</p>
+
+    <div class="codeBtnDiv" id="codeShow5">
+      <button class="codeBtn" id="showCode">SHOW CODE </button>
+    </div>
+    <div class="codeBtnDiv" id="codeHide5" style="display:none">
+      <button class="codeBtn" >HIDE CODE </button>
+    </div>
+
+    <div class="code">
+      <code  style="display:none" id="code5">
+        <pre>
+  function search(<span class="codeImportantY">arr, target</span>) {
+    for (var i = 0; i < <span class="codeImportantY">arr</span>.length; i++) {
+      if (<span class="codeImportantY">arr</span>[i] === <span class="codeImportantY">target</span>) {
+        return <span class="codeImportantY">arr</span>[i];
+      }
+    }
+    return 'not found';
+  <span class="codeImportantY">}</span>
+
+      </pre>
+      </code>
+    </div>
+
+    <h2>Binary Search</h2>
+    <h3 class="hidden">Overview</h3>
+    <p class="hidden">Let's suppose you could not find Peter Pan in your personal collection and you had to instead go to Blockbuster.  This approach adds a level of complexity to the situation due to the fact that the volume of DVDs we are dealing with is significantly larger. We could use the same process as we did in the first situation by starting from one end of the store and searching through each movies one by one, however, this might take a while. Let's think about one major difference between our personal collection and Blockbuster - Blockbuster is sorted. The movies are categorized according to the genre and within each genre the movies are categorized alphabetically.  This allows us to perform another search method that would be more effective than the linear search. This search method is called a binary search.</p>
+
+    <p class="hidden">Next, let's talk about the process. For example, let's say we are looking for the movie Peter Pan.  There's an animated section that takes up the back wall so we walk to the middle of it and see Monster's Inc.  We know that Peter Pan comes after Monster's Inc alphabetically so we can automatically discard  all the movies to the left of Monster's Inc. from our search. Our search area is now narrowed down to where we are standing (Monster's Inc) to the end of the shelf (Up).  We walk to the middle of our new search area and find Star Wars. We know Peter Pan would come before Star Wars so we can now discard all of the movies after Star Wars, narrowing down our search area even further.  We now look to the right of Monster's Inc and to the left of Star Wars and fine Peter Pan, the movie we're looking for! Now let's try and translate this process to computer terms.</p>
+
+    <h3>Setup</h3>
+    <p class="hidden">As we did in the previous example, let's start out by translating the physical movies into an array and setting up the function.  As mentioned earlier, this array will be sorted. We'll also need a variable set up for the movie we're looking for. This variable will be the called target.<p>
+
+    <p class="instructions">Step 1: Translate the movies into an array data structure, declare a variable for the item you are searching for, and set up the function.  </p>
+
+      <div id="image">
+        <image class="medPic" src="images/binary_array.png" />
+      </div>
+
+      <div class="codeBtnDiv" id="codeShow9">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide9" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+      <div class="code">
+        <code  style="display:none" id="code9">
+          <pre>
+   <span class="codeImportantY">
+   var movies = ["captain america", "despicable me",
+   ghostbusters", "harry potter", "monsters inc",
+   "peter pan", "star wars", "toy story", "up"];
+
+   var target = "peter pan";
+
+   function binarySearch() {</span>
+
+     <span class="codeComment">// code will go here</span>
+
+    <span class="codeImportantY">}</span>
+          </pre>
+        </code>
+      </div>
+      <h3>Start and End Variables</h3>
+
+      <p class="hidden">One aspect to notice about this process is our search area is becoming smaller and smaller.  To start, let's declare our search area to be the entire array and throughout the process we'll start narrowing it down..</p>
+
+      <p class="instructions">Step 2: Create a variable for the beginning of the array and a variable for the end of the array.  This will be our initial search area.</p>
+
+      <div class="codeBtnDiv" id="codeShow7">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide7" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+      <div class="code">
+        <code  style="display:none" id="code7">
+          <pre>
+    var movies = ["captain america", "despicable me",
+    ghostbusters", "harry potter", "monsters inc",
+    peter pan", "star wars", "toy story", "up"];
+
+    var target = "peter pan";
+
+    function binarySearch() {
+      <span class="codeImportantY">var start = 0;
+      var end = movies.length;</span>
+    }
+        </pre>
+        </code>
+      </div>
+
+      <h3>The While Loop</h3>
+      <p class="hidden">As mentioned earlier, our search area will decrease throughout our code. Either the starting point will move towards the ending point or the ending point will move towards the starting point, or a combination of both. One thing we want to prevent from happening is the start variable increasing to the point where it catches up to the ending point or vice versa.  Instead of continuing with our search, we should consider the movie not found.</p>
+
+      <p class="instructions">Step 3: Create a loop that is run while the start variable is less than the end variable</p>
+
+      <div class="codeBtnDiv" id="codeShow8">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide8" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+      <div class="code">
+        <code  style="display:none" id="code8">
+          <pre>
+    var movies = ["captain america", "despicable me",
+    ghostbusters", "harry potter", "monsters inc",
+    peter pan", "star wars", "toy story", "up"];
+
+    var target = "peter pan";
+
+    function binarySearch() {
+      var start = 0;
+      var end = movies.length;
+
+      <span class="codeImportantY">while (start < end) {</span>
+        <span class="codeComment">// if statements will go here</span>
+      <span class="codeImportantY">}</span>
+    }
+        </pre>
+        </code>
+      </div>
+
+      <H3>The Middle Loop</h3>
+      <p class="hidden">Lets now think about where we want to start our search.  We might be tempted to start at the beginning if the movie we are looking for starts with an A or B or start at the end if the movie start with a Y or Z but what if we are looking for Bambi and all the movies before are Anastasia? In short, just because something is at the beginning of the alphabet, it does not mean it will be at the beginning of the array.  By making our starting point the middle of the array we can guaruntee that we will be able to elimate half of the movies.</p>
+
+      <p class="hidden">When creating the middle variable in our code, we can simply add the start variable and end variable and divide by two.  We also should apply some sort of floor method to avoid fractions. Since we want this variable to change every loop, it will be placed inside of the while loop. </p>
+
+      <p class="instructions">Step 4: Create a variable for the middle index and place it inside of the while loop.</p>
+
+      <div class="codeBtnDiv" id="codeShow10">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide10" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+      <div class="code">
+        <code  style="display:none" id="code10">
+          <pre>
+    var movies = ["captain america", "despicable me",
+    ghostbusters", "harry potter", "monsters inc",
+    peter pan", "star wars", "toy story", "up"];
+
+    var target = "peter pan";
+
+    function binarySearch() {
+      var start = 0;
+      var end = movies.length;
+
+      while (start < end) {
+        <span class="codeImportantY">var middle = Math.floor(start + end/ 2);</span>
+      }</span>
+    }
+        </pre>
+        </code>
+      </div>
+
+      <p class="hidden">So far there has been a lot of explaining. Let's stop and take a look at a visual representation of what we have so far.</p>
+
+      <div id="image">
+        <image class="medPic" src="images/binary_loop.png" />
+      </div>
+
+      <h3>Applying Logic</h3>
+      <p class="hidden">Now that our function is organized, let's talk about the process when we are physically looking for the movie in Blockbuster. We already determined that starting in the middle would be the best choice, so lets go ahead and walk up to Monster's Inc. and consider the logic involved.</p>
+
+      <h4>Condition #1: middle = target</h4>
+      <p class="hidden">Suppose that Monster's Inc was the movie we were looking for.  It wouldn't make much sense to continue our search.  Instead we would want to grab the movie, or in computer terms return the movie.  Let's create an if statement that demonstrates this case.</p>
+
+      <p class="hidden">In this example we'll assume the movie we're looking for is Monster's Inc.  In this case we would grab the movie and head to check out, ending our search.  If the movie we were looking for was not Monster's Inc, we would move on to an additional if statement which we'll go over in the next sections.</p>
+
+      <p class="instructions">Step 5: Create an if statement for if the middle index is equal to the target.  If it is then terminate the search and return the movie.</p>
+
+      <div id="image">
+        <image class="medPic" src="images/binary_monsters.png" />
+      </div>
+
+      <div class="codeBtnDiv" id="codeShow11">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide11" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+      <div class="code">
+        <code  style="display:none" id="code11">
+          <pre>
+    var movies = ["captain america", "despicable me",
+    ghostbusters", "harry potter", "monsters inc",
+    peter pan", "star wars", "toy story", "up"];
+
+    var target = <span class="codeImportantY">"monsters inc"</span>;
+
+    function binarySearch() {
+      var start = 0;
+      var end = movies.length;
+
+      while (start < end) {
+        var middle = Math.floor(start + end/ 2);
+        <span class="codeImportantY">if (movies[middle] === target) {
+          return movies[middle];
+        }</span>
+      }
+    }
+        </pre>
+        </code>
+      </div>
+
+      <h4>Condition #2: Target > Middle</h4>
+      <p class="hidden">Lets go back to our Peter Pan quest.  This time when we walk up to our middle item Monster's Inc. it is not the movie we are looking for.  So now what?  Since Peter Pan comes after Monster's Inc alphabeticaly, we know that it will not be before Monster's inc.  We can therefore eliminate all of the movies before Monster's Inc.  Our new search area is now the movie after Monster's Inc to the end of the shelf.  Since our beginning point changed, we now have a new middle.</p>
+
+      <p class="hidden">In our code we need to create an if statement for the condition of the middle being greater than the target.  If this is the case we shorten the search area by declaring the new start of the search to be the old middle and calculating a new middle.</p>
+
+      <p class="instructions">Step 6: For the 2nd if statement, if the target is greater than the middle index, eliminate the first half of the search area by making the beginning the item after the old middle and calculate a new middle index</p>
+
+      <div id="image">
+        <image class="medPic" src="images/binary_cond_3.png" />
+      </div>
+
+      <div class="codeBtnDiv" id="codeShow12">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide12" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+      <div class="code">
+        <code  style="display:none" id="code12">
+          <pre>
+    var movies = ["captain america", "despicable me",
+    ghostbusters", "harry potter", "monsters inc",
+    peter pan", "star wars", "toy story", "up"];
+
+    <span class="codeImportantY">var target = "peter pan";</span>
+
+    function binarySearch() {
+      var start = 0;
+      var end = movies.length;
+
+      while (start < end) {
+        var middle = Math.floor(start + end/ 2);
+        if (movies[middle] === target) {
+          return movies[middle];
+        <span class="codeImportantY">else if (target > movies[middle]) {
+          start = middle + 1; </span>
+        }
+      }
+    }
+        </pre>
+        </code>
+      </div>
+
+      <h4> Condition #3: Target < Middle </h4>
+      <p class="hidden">Let's now look at our new search area and look at our new middle item, Star Wars. Alphabetically, Peter Pan comes before Star Wars so now we need to eliminate all of the movies to the right of Star Wars.  We can now say that our new end is Peter Pan (the old middle index number minus 1).  Since Peter Pan is now both the beginning and the end, when we calculate the middle, (the index number of the beg (Peter Pan) + the index number of the end (Peter Pan) divided by two), Peter Pan also ends up being the middle.  Now when we perform our final loop, Peter Pan is equal to the middle and therefore returned as the solution.</p>
+
+      <p class="instructions">Step 7: For the 3nd if statement, if the target is less than the middle index, eliminate the second half of the search area by making the beginning the item before the old middle and calculate a new middle index</p>
+
+      <div id="image">
+        <image class="largePic" src="images/binary_movieFound.png" />
+      </div>
+
+      <div class="codeBtnDiv" id="codeShow13">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide13" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+      <div class="code">
+        <code  style="display:none" id="code13">
+          <pre>
+    var movies = ["captain america", "despicable me",
+    ghostbusters", "harry potter", "monsters inc",
+    peter pan", "star wars", "toy story", "up"];
+
+    <span class="codeImportantY">var target = "peter pan";</span>
+
+    function binarySearch() {
+      var start = 0;
+      var end = movies.length;
+
+      while (start < end) {
+        var middle = Math.floor(start + end/ 2);
+        if (movies[middle] === target) {
+          return movies[middle];
+        }
+        else if (target > movies[middle]) {
+          start = middle + 1;
+        }
+        <span class="codeImportantY">else if (target < movies[middle]) {
+          end = middle - 1;
+        }</span>
+      }
+    }
+        </pre>
+        </code>
+      </div>
+
+      <h3>Condition #4: Movie Not Found</h3>
+
+      <p class="hidden">Just as in the linear search, we need to create a return statement in the case of the movie is not found.  To demonstrate, instead of searching for Peter Pan, let's search for a movie not in the list - Snow White.  We'll skip to the step where we have one movie left - the beginning, middle and end of the search area is Peter Pan.  Unlike the last step, where we broke out of the loop and returned Peter Pan since our target was found, we will go through one more loop.</p>
+
+      <p class="hidden">Since we know Snow White comes after Peter Pan and before Star Wars yet there is no movie there, we end our search.  Let's take a look at what happens in the code.  At this point Peter Pan is our beginning, middle and end of our search area since it is the only movie in our search area.  When we make the final loop, since Snow White comes after Peter Pan alphabetically and is therefore greater than Peter Pan our new beginning is the middle + 1, which would be Star Wars, making our beginning greater than our end (Peter Pan).  Since our while loop only runs when the beginning is less than the end, we would exit out of it and return not found </p>
+
+      <p class="instructions">Step 8: Create a return statement if the movie is not found</p>
+      <div id="image">
+        <image class="largePic" src="images/binary_notFound.png" />
+      </div>
+
+      <div class="codeBtnDiv" id="codeShow14">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide14" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+
+      <div class="code">
+        <code  style="display:none" id="code14">
+          <pre>
+    var movies = ["captain america", "despicable me",
+    ghostbusters", "harry potter", "monsters inc",
+    peter pan", "star wars", "toy story", "up"];
+
+    <span class="codeImportantY">var target = "snow white";</span>
+
+    function binarySearch() {
+      var start = 0;
+      var end = movies.length;
+
+      while (start < end) {
+        var middle = Math.floor(start + end/ 2);
+        if (movies[middle] === target) {
+          return movies[middle];
+        }
+        else if (target > movies[middle]) {
+          start = middle + 1;
+        }
+        else if (target < movies[middle]) {
+          end = middle - 1;
+        }
+      }
+      <span class="codeImportantY">return 'not found'</span>
+    }
+        </pre>
+        </code>
+      </div>
+
+      <p class="hidden">Just as in the linear search, in order to make our code even better we should make it work for other arrays and different targets.  This can be done with arguments for the arrays and targets.</p>
+
+      <p class="instructions">Step 8: Inside of the function create arguments for the array and the target, making the function work for other arrays and different targets.</p>
+
+      <div class="codeBtnDiv" id="codeShow15">
+        <button class="codeBtn" id="showCode">SHOW CODE </button>
+      </div>
+      <div class="codeBtnDiv" id="codeHide15" style="display:none">
+        <button class="codeBtn" >HIDE CODE </button>
+      </div>
+
+
+      <div class="code">
+        <code  style="display:none" id="code15">
+          <pre>
+
+    function binarySearch(<span class="codeImportantY">arr, target</span>) {
+      var start = 0;
+      var end = <span class="codeImportantY">arr</span>.length;
+
+      while (start < end) {
+        var middle = Math.floor(start + end/ 2);
+        if (<span class="codeImportantY">arr</span>[middle] === <span class="codeImportantY">target</span>) {
+          return movies[middle];
+        }
+        else if (<span class="codeImportantY">target</span> > <span class="codeImportantY">arr</span>[middle]) {
+          start = middle + 1;
+        }
+        else if (<span class="codeImportantY">target</span> < <span class="codeImportantY">arr</span>[middle]) {
+          end = middle - 1;
+        }
+      }
+      return 'not found'
+    }
+        </pre>
+        </code>
+      </div>
+
+      <h3 class="hidden">Conclusion</h3>
+      <p class="hidden">Well that concludes the end to this explanation on linear and binary searching.  One important aspect you should remember is that the binary search requires the array to be sorted.  If you have an unsorted array you could either perform the linear search or sort the array first and then perform the binary search.  In my next post I'll go over different sort alorithms <span style="font-style: italic">(coming soon)</span>.</p>
+
+
+      </article>
+
+      <aside></aside>
+      <nav></nav>
+    </div>
+
+    <footer></footer>
+
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="app.js"></script>
+  </body>
+
+</html>
